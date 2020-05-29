@@ -7,6 +7,7 @@ const status = {
     correctInput: true,
 }
 function createPattern(level){
+    $(".statusLights").css("opacity", "0.3");
     status.entering = false;
     status.sequence = [];
     status.input = [];
@@ -31,6 +32,7 @@ function showPattern(color, i){
     }
     else if(i === status.sequence.length){
         status.entering = true;
+        $("#inputReady").css("opacity", "1");
     }
 }
 function clearTiles(nextColor, index){
@@ -39,8 +41,13 @@ function clearTiles(nextColor, index){
         setTimeout(showPattern, 300, nextColor, index)
     }
     else{
-        status.pause = true
-        setTimeout(function(){status.pause = false}, 300)
+        // status.pause = true
+        // setTimeout(function(){
+            status.pause = false;
+            if(status.input.length < status.sequence.length){
+                $("#inputReady").css("opacity", "1");
+            }
+        // }, 300)
     }
 }
 function checkInput(){
@@ -50,17 +57,21 @@ function checkInput(){
             if(status.input[i] !== status.sequence[i]){
                 status.correctInput = false
             }
-            console.log(i)
-            console.log(status.input[i])
             i++
         }
         if(status.correctInput === true){
-            console.log("Correct Input")
+            $("#correctInput").css("opacity", "1");
             setTimeout(createPattern, 1000, status.level)
+        }
+        else{
+            $("#incorrectInput").css("opacity", "1");
+            $("#inputReady").css("opacity","0.3");
+            $("#start").css("opacity","0.3")
         }
     }
 }
 $("#start").click(function(){
+    $("#start").css("opacity","1")
     createPattern(status.level);
 });
 $(".tile").click(function(){
@@ -69,6 +80,7 @@ $(".tile").click(function(){
         $("#"+id).css("opacity","1")
         status.input.push(id)
         status.pause = true
+        $("#inputReady").css("opacity", "0.3");
         setTimeout(clearTiles, 600)
         checkInput()
     }

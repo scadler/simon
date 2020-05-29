@@ -12,6 +12,11 @@ html{
     height: 42.5vh;
     width: 42.5vh; 
 }
+.statusLights{
+    position: absolute;
+    z-index: 2000;
+    opacity: 0.3;
+}
 #green{
     top: 5vh;
     left: calc(50vw - 45vh);
@@ -44,7 +49,7 @@ html{
     background-image: linear-gradient(to top left, rgb(33, 157, 221), rgb(16.5, 78.5, 110.5));
     opacity: 0.6;
 }
-#center{
+#overlap{
     position: absolute;
     top: 30vh;
     left: calc(50vw - 20vh);
@@ -54,7 +59,7 @@ html{
     border-radius:100%;
     z-index:100;
 }
-#start{
+#center{
     position: absolute;
     top: 35vh;
     left: calc(50vw - 15vh);
@@ -63,4 +68,74 @@ html{
     background-color: #111;
     border-radius:100%;
     z-index: 1000;
+}
+#start{
+    position: absolute;
+    opacity: 0.3;
+    height: 27vh;
+    width: 27vh;
+    border-radius: 100%;
+    top: 36vh;
+    left: calc(50vw - 13.5vh);
+    background-color: #526EF8;
+    z-index: 1400;
+}
+#startBackgroundA{
+    position: absolute;
+    height: 12vh;
+    width: 27vh;
+    border-bottom-right-radius:100%;
+    border-bottom-left-radius:100%;
+    top: 49.5vh;
+    left: calc(50vw - 13.5vh);
+    background-color: #111;
+    z-index: 1500;
+}
+#startBackgroundB{
+    position: absolute;
+    height: 10vh;
+    width: 20vh;
+    border-bottom-right-radius:100%;
+    border-bottom-left-radius:100%;
+    top: 54vh;
+    left: calc(50vw - 10vh);
+    background-color: #111;
+    z-index: 1500;
+}
+#inputReady{
+    height: 5vh;
+    width: 5vh;
+    top: 54.5vh;
+    border-radius: 100%;
+    left: calc(50vw - 3.5vh);
+    border: 1vh solid #111;
+    background-color: #EDED2D;
+    z-index: 3000;
+}
+#inputReadyBackground{
+    position: absolute;
+    height: 5vh;
+    width: 5vh;
+    border-radius: 100%;
+    border: 1vh solid #111;
+    top: 54.5vh;
+    left: calc(50vw - 3.5vh);
+    background-color: #111;
+    z-index: 2500;
+}
+#correctInput{
+    height: 13vh;
+    width: 13vh;
+    border-bottom-right-radius:100%;
+    top: 51vh;
+    left: calc(50vw + 0.5vh);
+    background-color: #2DED3A;
+}
+#incorrectInput{
+    height: 13vh;
+    width: 13vh;
+    border-bottom-left-radius:100%;
+    top: 51vh;
+    left: calc(50vw - 13.5vh);
+    background-color: #ED502D;
 }

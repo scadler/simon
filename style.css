@@ -18,6 +18,7 @@ html{
     /* background-color: rgb(24, 215, 112); */
     border-top-left-radius:100%;
     background-image: linear-gradient(to bottom right, rgb(24, 215, 112), rgb(12, 107.5, 56));
+    opacity: 0.6;
 }
 #red{
     top: 5vh;
@@ -25,6 +26,7 @@ html{
     background-color: rgb(250, 76, 49);
     border-top-right-radius:100%;
     background-image: linear-gradient(to bottom left, rgb(250, 76, 49), rgb(125, 28, 24.5));
+    opacity: 0.6;
 }
 #yellow{
     top: 52.5vh;
@@ -32,6 +34,7 @@ html{
     background-color: rgb(239, 216, 42);
     border-bottom-left-radius:100%;
     background-image: linear-gradient(to top right, rgb(239, 216, 42), rgb(119.5, 108, 21));
+    opacity: 0.6;
 }
 #blue{
     top: 52.5vh;
@@ -39,6 +42,7 @@ html{
     background-color: rgb(33, 157, 221);
     border-bottom-right-radius:100%;
     background-image: linear-gradient(to top left, rgb(33, 157, 221), rgb(16.5, 78.5, 110.5));
+    opacity: 0.6;
 }
 #center{
     position: absolute;
@@ -48,4 +52,14 @@ html{
     width: 40vh;
     background-color: #222;
     border-radius:100%;
+    z-index:100;
+}
+#start{
+    top: 35vh;
+    left: calc(50vw - 15vh);
+    height: 30vh;
+    width: 30vh;
+    background-color: #111;
+    border-radius:100%;
+    z-index: 1000;
 }

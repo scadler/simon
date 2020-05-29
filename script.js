@@ -76,6 +76,7 @@ function checkInput(){
     }
 }
 $("#start").click(function(){
+    status.level = 1;
     $("#start").css("opacity","1")
     createPattern(status.level);
 });

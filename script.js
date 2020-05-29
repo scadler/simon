@@ -1,11 +1,17 @@
 const status = {
-    level: 2,
+    level: 1,
     sequence: [],
     input: [],
     entering: false,
     pause: false,
     correctInput: true,
 }
+  var sounds = {
+    green: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"),
+    red: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"),
+    blue: new Audio("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"),
+    yellow: new Audio ("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"),
+  };
 function createPattern(level){
     $(".statusLights").css("opacity", "0.3");
     status.entering = false;
@@ -28,6 +34,7 @@ function showPattern(color, i){
     if(i <status.sequence.length){
         i++
         $("#"+color).css("opacity","1")
+        sounds[color].play();
         setTimeout(clearTiles, 600, status.sequence[i], i)
     }
     else if(i === status.sequence.length){
@@ -41,13 +48,10 @@ function clearTiles(nextColor, index){
         setTimeout(showPattern, 300, nextColor, index)
     }
     else{
-        // status.pause = true
-        // setTimeout(function(){
             status.pause = false;
             if(status.input.length < status.sequence.length){
                 $("#inputReady").css("opacity", "1");
             }
-        // }, 300)
     }
 }
 function checkInput(){
@@ -64,6 +68,7 @@ function checkInput(){
             setTimeout(createPattern, 1000, status.level)
         }
         else{
+            status.pause = true
             $("#incorrectInput").css("opacity", "1");
             $("#inputReady").css("opacity","0.3");
             $("#start").css("opacity","0.3")
@@ -79,6 +84,7 @@ $(".tile").click(function(){
     if(status.entering === true && status.pause === false){
         $("#"+id).css("opacity","1")
         status.input.push(id)
+        sounds[id].play();
         status.pause = true
         $("#inputReady").css("opacity", "0.3");
         setTimeout(clearTiles, 600)

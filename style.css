@@ -55,6 +55,7 @@ html{
     z-index:100;
 }
 #start{
+    position: absolute;
     top: 35vh;
     left: calc(50vw - 15vh);
     height: 30vh;
